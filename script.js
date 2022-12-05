@@ -6,7 +6,7 @@ const CANVAS_HEIGHT = canvas.height = 600;
 playerImage.src = 'shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
-let playerState = 'run';
+let playerState = 'idle';
 //let frameX = 0; // Horizontal 0-12
 //let frameY = 0; // Vertical 0-9
 let gameframe = 0;
@@ -46,7 +46,7 @@ const animationStates = [
         frames: 7,
     },
     {
-        name:'ko' ,
+        name:'sleep' ,
         frames: 12,
     },
     {
@@ -76,10 +76,8 @@ class InputHandler{
         window.addEventListener("keydown", e => {
             if((e.key === "ArrowDown") ){
                 console.log('ArrowDown');
-                if (times < animationStates.length -1){
-                    console.log(times); 
+                if (times < animationStates.length -1){                    
                     playerState = animationStates[times].name;
-                    console.log(playerState);
                     times ++;
                 } else times = 0;
             }         
@@ -91,22 +89,18 @@ class InputHandler{
                 console.log('ArrowUp');  
                 if ( times === 0){
                     playerState = animationStates[times].name;
-                    times=9;
-                    console.log(times);
-                    //playerState = animationStates[times].name;
-                    console.log(playerState);       
-                     
-                  }
+                    times=9;                 
+                }
                          
                 else if (times < animationStates.length  &&  times>0){                    
-                    console.log(times); 
+                     
                     playerState = animationStates[times].name;
-                    console.log(playerState);
                     times = times-1;
-                    console.log(times);
-                } 
-               
-            }         
+                    
+                }                
+            } 
+            console.log(playerState); 
+            console.log(times);       
                   
             
         });
