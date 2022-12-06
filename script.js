@@ -50,7 +50,7 @@ const animationStates = [
         frames: 12,
     },
     {
-        name:'gethit',
+        name:'dance',
         frames: 4,
     }
 ]
@@ -93,7 +93,7 @@ class InputHandler{
                 playerState = 'roll'                
             } 
             if((e.key === "2") ){               
-                playerState = 'gethit'                
+                playerState = 'dance'                
             } 
             if((e.key === "3") ){               
                 playerState = 'fall'                
@@ -127,11 +127,11 @@ function displayText(context){
         context.fillText(' → - to Run', 580, 160)
         context.fillText(' ← - to Idle', 580, 190)
         context.fillText(' 1 - to Roll', 580, 220)
-        context.fillText(' 2 - to Gethit', 580, 250)
+        context.fillText(' 2 - to Dance', 580, 250)
         context.fillText(' 3 - to Fall', 580, 280)
         context.fillText(' 4 - to Dizzy', 580, 310)
         context.fillText(' 5 - to Bite', 580, 340)
-        context.fillText(' 6 - to sleep', 580, 370)
+        context.fillText(' 6 - to Sleep', 580, 370)
     context.font = '40px Helvetica'; 
         context.fillText( playerState, 300, 580) 
             
