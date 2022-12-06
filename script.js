@@ -122,16 +122,16 @@ function displayText(context){
 
         context.fillText( 'Press the following keys to change dog action: ',100, 30)
                        
-        context.fillText(' ↓ - to Sit', 580, 100)
-        context.fillText(' ↑ - to Jump', 580, 130)
-        context.fillText(' → - to Run', 580, 160)
-        context.fillText(' ← - to Idle', 580, 190)
-        context.fillText(' 1 - to Roll', 580, 220)
-        context.fillText(' 2 - to Dance', 580, 250)
-        context.fillText(' 3 - to Fall', 580, 280)
-        context.fillText(' 4 - to Dizzy', 580, 310)
-        context.fillText(' 5 - to Bite', 580, 340)
-        context.fillText(' 6 - to Sleep', 580, 370)
+        context.fillText(' ↓ - Sit', 580, 100)
+        context.fillText(' ↑ - Jump', 580, 130)
+        context.fillText(' → - Run', 580, 160)
+        context.fillText(' ← - Idle', 580, 190)
+        context.fillText(' 1 - Roll', 580, 220)
+        context.fillText(' 2 - Dance', 580, 250)
+        context.fillText(' 3 - Fall', 580, 280)
+        context.fillText(' 4 - Dizzy', 580, 310)
+        context.fillText(' 5 - Bite', 580, 340)
+        context.fillText(' 6 - Sleep', 580, 370)
     context.font = '40px Helvetica'; 
         context.fillText( playerState, 300, 580) 
             
