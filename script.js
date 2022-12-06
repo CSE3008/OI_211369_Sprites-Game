@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const playerImage = new Image();
-const CANVAS_WIDTH = canvas.width = 600;
+const CANVAS_WIDTH = canvas.width = 750;
 const CANVAS_HEIGHT = canvas.height = 600;
 playerImage.src = 'shadow_dog.png';
 const spriteWidth = 575;
@@ -70,51 +70,71 @@ console.log(spriteAnimations);
 
 class InputHandler{
     constructor(){
-        let times = 0;
-        let stat;
-       this.keys = [];
+      
         window.addEventListener("keydown", e => {
             if((e.key === "ArrowDown") ){
                 console.log('ArrowDown');
-                if (times < animationStates.length -1){                    
-                    playerState = animationStates[times].name;
-                    times ++;
-                } else times = 0;
-            }         
+                playerState = 'sit'                
+            }   
           
-        });
-
-        window.addEventListener("keyup", e => {
+       
             if((e.key === "ArrowUp") ){
-                console.log('ArrowUp');  
-                if ( times === 0){
-                    playerState = animationStates[times].name;
-                    times=9;                 
-                }
-                         
-                else if (times < animationStates.length  &&  times>0){                    
-                     
-                    playerState = animationStates[times].name;
-                    times = times-1;
-                    
-                }                
+                console.log('ArrowUp'); 
+                playerState = 'jump'
             } 
-            console.log(playerState); 
-            console.log(times);       
-                  
-            
+    
+            if((e.key === "ArrowRight") ){
+                 playerState = 'run'
+            } 
+            if((e.key === "ArrowLeft") ){
+                playerState = 'idle'
+            } 
+            if((e.key === "1") ){               
+                playerState = 'roll'                
+            } 
+            if((e.key === "2") ){               
+                playerState = 'gethit'                
+            } 
+            if((e.key === "3") ){               
+                playerState = 'fall'                
+            } 
+            if((e.key === "4") ){               
+                playerState = 'dizzy'                
+            } 
+            if((e.key === "5") ){               
+                playerState = 'bite'                
+            } 
+            if((e.key === "6") ){               
+                playerState = 'sleep'                
+            } 
+            console.log(e.key + " - " + playerState); 
         });
 
     }
 }
 function displayText(context){
     context.fillStyle = 'black';   
-    context.font = '20px Helvetica'; 
+    context.font = '25px Helvetica'; 
     context.shadowOffsetX = 2;
-            context.shadowOffsetY = 2;
-            context.shadowColor = 'rgb(165, 118, 157)'; 
-    
-    context.fillText('Press Arrow Down ↓ or Arrow Up ↑ to change animation: ' + playerState, 20, 580)
+    context.shadowOffsetY = 2;
+    context.shadowColor = 'rgb(165, 118, 157)';  
+            
+
+        context.fillText( 'Press the following keys to change dog action: ',100, 30)
+                       
+        context.fillText(' ↓ - to Sit', 580, 100)
+        context.fillText(' ↑ - to Jump', 580, 130)
+        context.fillText(' → - to Run', 580, 160)
+        context.fillText(' ← - to Idle', 580, 190)
+        context.fillText(' 1 - to Roll', 580, 220)
+        context.fillText(' 2 - to Gethit', 580, 250)
+        context.fillText(' 3 - to Fall', 580, 280)
+        context.fillText(' 4 - to Dizzy', 580, 310)
+        context.fillText(' 5 - to Bite', 580, 340)
+        context.fillText(' 6 - to sleep', 580, 370)
+    context.font = '40px Helvetica'; 
+        context.fillText( playerState, 300, 580) 
+            
 }
 const input = new InputHandler ();
 
